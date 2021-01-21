@@ -1,5 +1,8 @@
 import java.util.Random;
 import java.util.Scanner; // Import the Scanner class
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 class Main {
     public static void main(String[] args) {
@@ -8,6 +11,14 @@ class Main {
         int NumberToGuess = rand.nextInt(upperBound);
         boolean isCorrect = false;
         Scanner myObj = new Scanner(System.in); // Create a Scanner object
+        try {
+            FileWriter x = new FileWriter("Guess.txt");
+            x.write("the answer is " + NumberToGuess);
+            x.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         while (!isCorrect) {
            
             System.out.println("Guess a number between 0 and 100");
